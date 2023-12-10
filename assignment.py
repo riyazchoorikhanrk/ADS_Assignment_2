@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 
 def read_data(input_file):
-     '''
+    '''
     Parameters
     ----------
     input_file : input filename(.csv) fo read the data.
@@ -41,7 +41,7 @@ print(summary.describe())
 
 
 def heatmap_generator(data, countries, indicators):
-     '''
+    '''
     Generates a heatmap for specified countries and indicators based on input data.
 
     Parameters
@@ -83,9 +83,9 @@ heatmap_generator(years_df, countries, indicator_attributes)
 
 
 def line_plot(plot, indicators, source_data, years, countries, y, title):
-      '''
+    '''
     Extracts and processes data based on the specified indicator, source data, years, and countries.
-    
+
     Parameters
     ----------
     indicators : str
@@ -106,7 +106,6 @@ def line_plot(plot, indicators, source_data, years, countries, y, title):
     final_result : list
         The output data with only the requested data from the given indicator.
     '''
-  
     result_data = []
     data_frame_group = {}
     for year in years:
@@ -147,7 +146,18 @@ plotLand = line_plot(1, "AG.LND.AGRI.ZS", years_df, years, countries, "'Agricult
 
 
 def bar_plot(data, years, y_axis, title):
-   
+    ''' 
+    Parameters
+    ----------
+    data : Data for plotting the bar graph
+    years : The axis labels and years data for multiple plots.
+    y_axis : y axis label for the graph
+    title : title for the plot
+
+    Returns
+    -------
+    None.
+    '''
     plt.figure(figsize=(9, 12))
     x_axis = np.arange(len(years))
     colors = ['#FF0000', '#00FF00', '#0000FF',
@@ -174,7 +184,17 @@ bar_plot(data_bar_chart, years_barplot, "Cereal yield (kg per hectare)",
 
 
 def pie_plot(data, labels, title):
+    '''
+    Parameters
+    ----------
+    data : List of data for each category.
+    labels : List of labels for each country name.
+    title : Title of the pie chart.
 
+    Returns
+    -------
+    None.
+    '''
     plt.figure(figsize=(4, 4))
     wedges, texts, autotexts = plt.pie(data, labels=labels, autopct='%1.1f%%', startangle=140, colors=['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#800080', '#008080'],
                                        textprops=dict(color="w"))
@@ -200,7 +220,16 @@ for i in range(0, len(countries)):
 
 
 def table(summary):
-   
+    '''
+    Parameters
+    ----------
+    summary : List of data for each category.
+
+
+    Returns
+    -------
+    table : dataframe for the table.
+    '''
     table_plot = summary.head()
     data_table = table_plot.values.tolist()
     data = {
