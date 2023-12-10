@@ -5,7 +5,16 @@ import matplotlib.pyplot as plt
 
 
 def read_data(input_file):
-   
+     '''
+    Parameters
+    ----------
+    input_file : input filename(.csv) fo read the data.
+
+    Returns
+    -------
+    yearsdf : data with years as columns.
+    countriesdf : data with years as columns.
+    '''
     yearsdf = pd.read_csv(input_file, skiprows=3)
     countriesdf = yearsdf.transpose()
     return yearsdf, countriesdf
