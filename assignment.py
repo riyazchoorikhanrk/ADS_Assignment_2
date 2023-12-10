@@ -41,7 +41,22 @@ print(summary.describe())
 
 
 def heatmap_generator(data, countries, indicators):
- 
+     '''
+    Generates a heatmap for specified countries and indicators based on input data.
+
+    Parameters
+    ----------
+    data : pandas DataFrame
+        Input data for cleaning the file.
+    countries : list
+        The required countries in the data.
+    indicators : list
+        The indicator codes for the specific features in the data.
+
+    Returns
+    -------
+    None.
+    '''
     indicator_data = {'Country': [], 'Attribute': [], 'Valuation': []}
     country_corr = ["United States", "United Kingdom", "India"]
     for i in range(len(data)):
@@ -68,6 +83,29 @@ heatmap_generator(years_df, countries, indicator_attributes)
 
 
 def line_plot(plot, indicators, source_data, years, countries, y, title):
+      '''
+    Extracts and processes data based on the specified indicator, source data, years, and countries.
+    
+    Parameters
+    ----------
+    indicators : str
+        The indicator code for the specific feature in the data.
+    source_data : pandas DataFrame
+        The input data to be processed.
+    years : list
+        The required years to process the data.
+    countries : list
+        The required countries in the data.
+    y : str
+        Y axis title for the plot
+    title: str
+        title for the plot
+
+    Returns
+    -------
+    final_result : list
+        The output data with only the requested data from the given indicator.
+    '''
   
     result_data = []
     data_frame_group = {}
